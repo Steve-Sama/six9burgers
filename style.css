@@ -1,0 +1,365 @@
+/* ----------------------------
+   RESET & BASIC STYLES
+---------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  color: #333;
+  scroll-behavior: smooth;
+
+  /* Full-page gradient background behind everything */
+  background: linear-gradient(135deg, #f5f5f5, #c8c8c8);
+}
+
+/* Links */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Sections */
+section {
+  padding: 100px 20px;
+  position: relative;
+  background: transparent; /* keep gradient visible */
+}
+
+/* ----------------------------
+   HERO SECTION
+---------------------------- */
+#hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+  overflow: hidden;
+}
+
+/* Hero background image (separate, not affected by page gradient) */
+.hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('hero.jpg') center center/cover no-repeat;
+  z-index: -1;
+}
+
+/* Hero social icons */
+.hero-socials {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 30px;
+}
+
+.hero-socials img {
+  width: 40px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.hero-socials img:hover {
+  transform: scale(1.2);
+}
+
+/* Hero logo top-left */
+.hero-logo {
+  position: absolute;
+  top: 15px;
+  left: 20px;
+  z-index: 3; /* above hero background */
+}
+
+.hero-logo img {
+  width: 50px;   /* small icon size */
+  height: 50px;  /* force square shape */
+  object-fit: contain;
+  border-radius: 8px; /* optional: soft rounded edges */
+}
+
+
+/* Hero text */
+.hero-title {
+  font-size: 3rem;
+  margin-top: auto;
+  margin-bottom: 20px;
+  animation: fadeInUp 1.5s ease forwards;
+  opacity: 0;
+}
+
+/* Hero button */
+.hero-btn {
+  padding: 15px 40px;
+  background: #ff416c;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 50px;
+  margin-bottom: 50px;
+  transition: transform 0.3s ease;
+}
+
+.hero-btn:hover {
+  transform: scale(1.1);
+}
+
+/* Hero fade-in animation */
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(50px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* ----------------------------
+   ABOUT SECTION
+---------------------------- */
+#about {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+}
+
+#about img {
+  border-radius: 15px;
+  max-width: 300px;
+  width: 100%;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+#about .about-text {
+  max-width: 600px;
+}
+
+#about .about-text h2 {
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+  color: #ff416c;
+  font-weight: 700;
+}
+
+#about .about-text p {
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+#about .about-text strong {
+  color: #ff4b2b;
+}
+
+/* ----------------------------
+   MENU SECTION
+---------------------------- */
+#menu {
+  text-align: center;
+}
+
+#menu h2 {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+}
+
+/* Menu cards container */
+.menu-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+}
+
+/* Individual menu card */
+.menu-card {
+  position: relative;
+  width: 250px;
+  height: 300px;
+  overflow: hidden;
+  border-radius: 15px;
+  cursor: pointer;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.menu-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+/* Overlay for text */
+.menu-card::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.4);
+  transition: background 0.3s ease;
+}
+
+.menu-text {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  color: #fff;
+  z-index: 2;
+  text-align: left;
+}
+
+.menu-text h3 {
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.menu-text p {
+  font-size: 1rem;
+}
+
+.menu-card:hover img {
+  transform: scale(1.1);
+}
+
+.menu-card:hover::after {
+  background: rgba(0,0,0,0.2);
+}
+
+.menu-card:hover .menu-text h3,
+.menu-card:hover .menu-text p {
+  transform: translateY(-5px);
+  transition: transform 0.3s ease;
+}
+
+/* PDF button */
+#menu .pdf-btn {
+  margin-top: 30px;
+  padding: 12px 25px;
+  background: #ff416c;
+  color: #fff;
+  border-radius: 50px;
+  display: inline-block;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+#menu .pdf-btn:hover {
+  transform: scale(1.1);
+}
+
+/* ----------------------------
+   MAP SECTION
+---------------------------- */
+#location {
+  text-align: center;
+}
+
+#location h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.map-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+/* ----------------------------
+   CONTACT SECTION
+---------------------------- */
+#contact {
+  text-align: center;
+  padding: 100px 20px;
+  background: rgba(255, 255, 255, 0.85);
+}
+
+#contact h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+#contact p {
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+#contact p a {
+  color: inherit;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+  transition: transform 0.1s ease;
+}
+
+/* Vibration animation for numbers */
+@keyframes vibrate {
+  0% { transform: translate(0); }
+  10% { transform: translate(-2px,2px); }
+  20% { transform: translate(-2px,-2px); }
+  30% { transform: translate(2px,2px); }
+  40% { transform: translate(2px,-2px); }
+  50% { transform: translate(-2px,2px); }
+  60% { transform: translate(2px,2px); }
+  70% { transform: translate(-2px,-2px); }
+  80% { transform: translate(2px,-2px); }
+  90% { transform: translate(-2px,2px); }
+  100% { transform: translate(0); }
+}
+
+#contact p a:hover {
+  animation: vibrate 0.3s linear infinite;
+  color: #ff416c;
+}
+
+/* Social Icons */
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.social-icons a {
+  font-size: 2rem;
+  transition: all 0.3s ease;
+  color: #ff416c;
+}
+
+.social-icons a:hover {
+  transform: scale(1.2);
+  color: #ff4b2b;
+}
+
+/* ----------------------------
+   FOOTER
+---------------------------- */
+footer {
+  text-align: center;
+  padding: 40px 20px;
+  background: #3a3636;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* ----------------------------
+   RESPONSIVE
+---------------------------- */
+@media(max-width:768px) {
+  #about { flex-direction: column; }
+}
